@@ -7,6 +7,7 @@ import {
   Table,
   Paper,
 } from "@mui/material";
+import { primaryColor } from "../../assets/theme/theme";
 const DataTable = (props) => {
   const rows = props.rows.map((row) => (
     <TableRow
@@ -23,7 +24,9 @@ const DataTable = (props) => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>{props.title}</TableCell>
+            <TableCell sx={{ fontSize: "20px", color: primaryColor }}>
+              {props.title}
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>{rows}</TableBody>

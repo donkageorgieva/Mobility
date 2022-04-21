@@ -4,10 +4,15 @@ import Nav from "./components/Nav/Nav";
 import { ThemeProvider } from "@emotion/react";
 import theme from "./assets/theme/theme";
 import { useEffect } from "react";
+import { routeActions } from "./redux/slices/routeSlice";
+import { useSelector, useDispatch } from "react-redux";
 function App() {
   const position = [42.65910002390543, 23.327611668904616];
+  const routes = useSelector((state) => state.routes);
+  const dispatch = useDispatch();
   useEffect(() => {}, []);
   const rows = [{ name: "1", stop: "Firsts" }];
+
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
