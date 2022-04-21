@@ -6,12 +6,15 @@ import {
   Typography,
   Button,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 const Nav = (props) => {
   const navButtons = props.buttons.map((btn) => (
-    <Button color="inherit" component="button">
-      {btn.text}
-    </Button>
+    <Link to={btn.to}>
+      <Button color="inherit" component="button" key={btn.text}>
+        {btn.text}
+      </Button>
+    </Link>
   ));
   return (
     <Box sx={{ flexGrow: 1 }}>

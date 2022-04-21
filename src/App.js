@@ -6,6 +6,7 @@ import theme from "./assets/theme/theme";
 import { useEffect } from "react";
 import { routeActions } from "./redux/slices/routeSlice";
 import { useSelector, useDispatch } from "react-redux";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 function App() {
   const position = [42.65910002390543, 23.327611668904616];
   const routes = useSelector((state) => state.routes);
@@ -16,9 +17,27 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
-        <Nav logo="Mobility" buttons={[{ text: "Map" }, { text: "Table" }]} />
-        <DataTable rows={rows} title="My Table" />
-        {/* <CustomMap position={position} scrollable={true} zoom={13} /> */}
+        <Router>
+          <Nav
+            logo="Mobility"
+            buttons={[
+              { text: "Map", to: "/" },
+              { text: "Table", to: "/table" },
+            ]}
+          />
+          <Routes>
+            <Route
+              element={<DataTable rows={rows} title="My Table" />}
+              path="/table"
+            />
+            <Route
+              path="/"
+              element={
+                <CustomMap position={position} scrollable={true} zoom={13} />
+              }
+            />
+          </Routes>
+        </Router>
       </ThemeProvider>
     </div>
   );
