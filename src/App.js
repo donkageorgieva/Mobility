@@ -1,17 +1,24 @@
 import CustomMap from "./components/CustomMap/CustomMap";
 import DataTable from "./containers/DataTable/DataTable";
-import Nav from "./components/Nav/Nav";
+import Nav from "./containers/Nav/Nav";
 import { ThemeProvider } from "@emotion/react";
 import theme from "./assets/theme/theme";
 import { useEffect } from "react";
-import { routeActions } from "./redux/slices/routeSlice";
+import { setRoutesFromAPI } from "./redux/middleware/routesRequest";
 import { useSelector, useDispatch } from "react-redux";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 function App() {
   const position = [42.65910002390543, 23.327611668904616];
   const routes = useSelector((state) => state.routes);
   const dispatch = useDispatch();
-  useEffect(() => {}, []);
+  useEffect(() => {
+    dispatch(
+      setRoutesFromAPI({
+        url: "https://mobility-b4c72-default-rtdb.firebaseio.com/.json",
+      })
+    );
+    console.log(routes);
+  }, [dispatch]);
   const rows = [{ name: "1", stop: "Firsts" }];
 
   return (
@@ -20,7 +27,7 @@ function App() {
         <Router>
           <Nav
             logo="Mobility"
-            buttons={[
+            links={[
               { text: "Map", to: "/" },
               { text: "Table", to: "/table" },
             ]}

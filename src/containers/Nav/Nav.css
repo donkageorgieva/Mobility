@@ -1,0 +1,13 @@
+.navLink {
+  color: white;
+}
+.navLink::after {
+  transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  width: 100%;
+  position: absolute;
+  height: 1px;
+  color: white;
+}
+.navLink .active {
+  transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}

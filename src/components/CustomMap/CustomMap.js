@@ -1,6 +1,9 @@
 import { MapContainer, TileLayer } from "react-leaflet";
+import { useSelector } from "react-redux";
 import "./CustomMap.css";
 const CustomMap = (props) => {
+  const selectedRoute = useSelector((state) => state.routes.displayedRoute);
+  console.log(selectedRoute);
   return (
     <MapContainer
       center={props.position}
