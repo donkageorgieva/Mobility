@@ -9,7 +9,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 function App() {
   const position = [42.65910002390543, 23.327611668904616];
-  const routes = useSelector((state) => state.routes);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(
@@ -17,7 +16,6 @@ function App() {
         url: "https://mobility-b4c72-default-rtdb.firebaseio.com/.json",
       })
     );
-    console.log(routes);
   }, [dispatch]);
   const rows = [{ name: "1", stop: "Firsts" }];
 

@@ -34,22 +34,25 @@ const Nav = (props) => {
               {props.logo}
             </Typography>
           </li>
-          <SelectInput
-            options={routes.filter((route) => {
-              return {
-                name: route.name,
-              };
-            })}
-            label="Маршрут"
-            onChange={(id) => {
-              console.log(id);
-              dispatch(
-                routeActions.displayRoute({
-                  id,
-                })
-              );
-            }}
-          />
+          <li style={{ flexGrow: 1 }}>
+            <SelectInput
+              options={routes.filter((route) => {
+                return {
+                  name: route.name,
+                };
+              })}
+              label="Маршрут"
+              onChange={(id) => {
+                console.log(id);
+                dispatch(
+                  routeActions.displayRoute({
+                    id,
+                  })
+                );
+              }}
+            />
+          </li>
+
           {navLinks}
         </Toolbar>
       </AppBar>

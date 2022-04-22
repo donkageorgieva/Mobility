@@ -17,7 +17,7 @@ const SelectInput = (props) => {
   ));
   return (
     <Box sx={{ minWidth: 120 }}>
-      <FormControl fullWidth variant="standard">
+      <FormControl variant="standard">
         <InputLabel
           id="demo-simple-select-label"
           sx={{ color: secondaryColor }}
