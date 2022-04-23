@@ -17,7 +17,7 @@ const SelectInput = (props) => {
   ));
   return (
     <Box sx={{ minWidth: 120 }}>
-      <FormControl variant="standard">
+      <FormControl variant="standard" color={props.color}>
         <InputLabel
           id="demo-simple-select-label"
           sx={{ color: secondaryColor }}
@@ -30,6 +30,10 @@ const SelectInput = (props) => {
           value={inputData}
           label="Age"
           onChange={handleChange}
+          color={props.color}
+          sx={{
+            "::before": { borderBottomColor: props.color },
+          }}
         >
           {options}
         </Select>

@@ -4,12 +4,12 @@ const initialState = {
   routes: [
     {
       name: "",
-      id: "",
+      id: null,
       transportType: "",
       stops: [{ location: { lat: 0, lng: 0 }, name: "", id: "" }],
     },
   ],
-  displayedRoute: { id: "" },
+  displayedRoute: { id: null },
 };
 export const routeSlice = createSlice({
   name: "routes",
@@ -23,7 +23,6 @@ export const routeSlice = createSlice({
       const selectedRoute = state.routes.find(
         (route) => route.id === action.payload.id
       );
-      console.log(selectedRoute);
       if (!selectedRoute) {
         const err = new Error("Route not found");
         throw err;

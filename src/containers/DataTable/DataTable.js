@@ -11,7 +11,6 @@ import {
 } from "@mui/material";
 import { primaryColor } from "../../assets/theme/theme";
 const DataTable = (props) => {
-  const routes = useSelector((state) => state.routes.routes);
   const rows = props.rows.map((row) => (
     <TableRow
       key={row.name}

@@ -36,6 +36,7 @@ const Nav = (props) => {
           </li>
           <li style={{ flexGrow: 1 }}>
             <SelectInput
+              color="secondary"
               options={routes.filter((route) => {
                 return {
                   name: route.name,

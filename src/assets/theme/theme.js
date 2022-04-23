@@ -22,9 +22,23 @@ theme.components = {
     styleOverrides: {
       root: {
         color: secondaryColor,
-        secondary: {
-          borderColor: "white",
+        borderColor: secondaryColor,
+      },
+    },
+  },
+  MuiSelect: {
+    styleOverrides: {
+      root: {
+        "&::before": {
+          borderColor: secondaryColor,
         },
+      },
+    },
+  },
+  MuiSvgIcon: {
+    styleOverrides: {
+      root: {
+        color: "white !important",
       },
     },
   },
