@@ -13,8 +13,16 @@ function App() {
   const dispatch = useDispatch();
   const segments = useSelector((state) => state.routes.displayedRoute.segments);
   const stops = useSelector((state) => state.routes.displayedRoute.stops);
-  const stopsCoords =
-    stops && stops.map((stop) => [stop.location.lat, stop.location.lng]);
+  const stopsInfo =
+    stops &&
+    stops.map((stop) => {
+      return {
+        coords: [stop.location.lat, stop.location.lng],
+        tooltip: stop.name,
+        id: stop.id,
+      };
+    });
+
   const segmentCoords =
     segments &&
     segments.map((segment) => {
@@ -57,10 +65,10 @@ function App() {
                   zoom={13}
                   segmentCoords={segments && segmentCoords}
                   color={redOptions}
-                  iconWidth={15}
-                  iconHeight={15}
+                  iconWidth={18}
+                  iconHeight={18}
                   iconUrl={"/bus.svg"}
-                  markerPositions={stopsCoords}
+                  markerInfo={stopsInfo}
                 />
               }
             />

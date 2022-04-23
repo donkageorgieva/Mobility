@@ -1,4 +1,10 @@
-import { MapContainer, TileLayer, Polyline, Marker } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Polyline,
+  Marker,
+  Tooltip,
+} from "react-leaflet";
 import L from "leaflet";
 import MapPlaceHolder from "./MapPlaceHolder/MapPlaceHolder";
 import "./Map.css";
@@ -8,9 +14,13 @@ const Map = (props) => {
     iconUrl: props.iconUrl,
     iconSize: [props.iconWidth, props.iconHeight],
   });
-  const markers = props.markerPositions.map((position) => (
-    <Marker key={position[0]} position={position} icon={mapIcon} />
-  ));
+  const markers =
+    props.markerInfo &&
+    props.markerInfo.map((info) => (
+      <Marker key={info.id} position={info.coords} icon={mapIcon}>
+        <Tooltip>{info.tooltip}</Tooltip>
+      </Marker>
+    ));
   console.log(props.markerPositions);
   return (
     <MapContainer
@@ -26,7 +36,7 @@ const Map = (props) => {
       {props.segmentCoords && (
         <Polyline pathOptions={props.color} positions={props.segmentCoords} />
       )}
-      {markers}
+      {props.markerInfo && markers}
     </MapContainer>
   );
 };
