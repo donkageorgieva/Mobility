@@ -33,14 +33,24 @@ const Nav = (props) => {
     <li
       key={btn.text + btn.to}
       className={menu.show ? "navLinks-group show" : "navLinks-group"}
-      onClick={menu.show && handleMobileMenu.bind({ close: true, open: false })}
+      onClick={
+        menu.show ? handleMobileMenu.bind({ close: true, open: false }) : null
+      }
     >
       <NavLink to={btn.to} className="navLink">
         {btn.text}
       </NavLink>
     </li>
   ));
-
+  const selectOptions = routes.filter((route) => {
+    return {
+      name: route.name,
+    };
+  });
+  selectOptions.push({
+    name: "Всички",
+    id: "all",
+  });
   return (
     <header component="header">
       <AppBar component="nav" position="fixed" sx={{ p: 1 }}>
@@ -60,19 +70,19 @@ const Nav = (props) => {
           <li style={{ flexGrow: 1 }}>
             <SelectInput
               color="secondary"
-              options={routes.filter((route) => {
-                return {
-                  name: route.name,
-                };
-              })}
+              options={selectOptions}
               label="Маршрут"
+              defaultValue="Всички"
               onChange={(id) => {
-                console.log(id);
-                dispatch(
-                  routeActions.displayRoute({
-                    id,
-                  })
-                );
+                if (id !== "all") {
+                  dispatch(
+                    routeActions.displayRoute({
+                      id,
+                    })
+                  );
+                } else {
+                  dispatch(routeActions.clearDisplayedRoute());
+                }
               }}
             />
           </li>

@@ -24,6 +24,9 @@ export const routeSlice = createSlice({
 
       state.displayedRoute = selectedRoute;
     },
+    clearDisplayedRoute(state, action) {
+      state.displayedRoute = {};
+    },
   },
 });
 

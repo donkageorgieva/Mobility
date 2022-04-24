@@ -2,7 +2,7 @@ import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { useState } from "react";
 import { secondaryColor } from "../../assets/theme/theme";
 const SelectInput = (props) => {
-  const [inputData, setInputData] = useState("");
+  const [inputData, setInputData] = useState(props.defaultValue);
   const handleChange = (event) => {
     setInputData(event.target.value);
     const optionId = props.options.find(
