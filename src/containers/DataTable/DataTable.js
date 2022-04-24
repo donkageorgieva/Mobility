@@ -9,45 +9,54 @@ import {
   Paper,
   Box,
 } from "@mui/material";
-import DirectionsBusIcon from "@mui/icons-material/DirectionsBus";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import { primaryColor } from "../../assets/theme/theme";
 
+import { primaryColor } from "../../assets/theme/theme";
+import TableRows from "../../components/TableRows/TableRows";
 const DataTable = (props) => {
   const selectedRoute = useSelector((state) => state.routes.displayedRoute);
-
-  const rows =
-    selectedRoute.stops &&
-    selectedRoute.stops.map((row) => (
-      <TableRow
-        key={row.id}
-        sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-      >
-        <TableCell component="th" scope="row">
-          <div style={{ gap: "0.5em" }} className="flex">
-            <DirectionsBusIcon sx={{ color: `#0092DA !important` }} />
-
-            <p>{row.name.toUpperCase()}</p>
-          </div>
-
-          <ArrowDownwardIcon sx={{ color: `black !important` }} />
-        </TableCell>
-      </TableRow>
-    ));
+  const allRoutes = useSelector((state) => state.routes.routes);
   return (
-    <TableContainer component={Paper} sx={{ mt: 10 }}>
+    <TableContainer component={Paper} sx={{ mt: 10, pt: 5 }}>
       <Box>
         <Table sx={{ minWidth: 650 }} aria-label="simple table ">
           <TableHead>
             <TableRow>
-              <TableCell
-                sx={{ fontSize: "20px", color: primaryColor, fontWeight: 600 }}
-              >
-                {selectedRoute.name && selectedRoute.name.toUpperCase()}
-              </TableCell>
+              {selectedRoute.stops ? (
+                <TableCell
+                  sx={{
+                    fontSize: "20px",
+                    color: primaryColor,
+                    fontWeight: 600,
+                  }}
+                >
+                  {selectedRoute.name.toUpperCase()}
+                </TableCell>
+              ) : (
+                allRoutes.map((route) => (
+                  <TableCell
+                    sx={{
+                      fontSize: "20px",
+                      color: primaryColor,
+                      fontWeight: 600,
+                    }}
+                  >
+                    {route.name.toUpperCase()}
+                  </TableCell>
+                ))
+              )}
             </TableRow>
           </TableHead>
-          <TableBody>{selectedRoute && rows}</TableBody>
+          <TableBody>
+            {selectedRoute.stops ? (
+              <TableRows rowInfo={selectedRoute.stops} />
+            ) : (
+              allRoutes.map((route) => (
+                <TableCell>
+                  <TableRows rowInfo={route.stops} />
+                </TableCell>
+              ))
+            )}
+          </TableBody>
         </Table>
       </Box>
     </TableContainer>
