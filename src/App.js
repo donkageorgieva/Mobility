@@ -18,7 +18,7 @@ function App() {
     stops.map((stop) => {
       return {
         coords: [stop.location.lat, stop.location.lng],
-        tooltip: stop.name,
+        tooltip: stop.name.toUpperCase(),
         id: stop.id,
       };
     });
@@ -34,11 +34,10 @@ function App() {
   useEffect(() => {
     dispatch(
       setRoutesFromAPI({
-        url: "https://mobility-b4c72-default-rtdb.firebaseio.com/.json",
+        url: process.env.REACT_APP_API,
       })
     );
   }, [dispatch]);
-  const rows = [{ name: "1", stop: "Firsts" }];
 
   return (
     <div className="App">
@@ -52,10 +51,7 @@ function App() {
             ]}
           />
           <Routes>
-            <Route
-              element={<DataTable rows={rows} title="My Table" />}
-              path="/table"
-            />
+            <Route element={<DataTable />} path="/table" />
             <Route
               path="/"
               element={

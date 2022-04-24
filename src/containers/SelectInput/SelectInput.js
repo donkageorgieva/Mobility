@@ -16,11 +16,27 @@ const SelectInput = (props) => {
     </MenuItem>
   ));
   return (
-    <Box sx={{ minWidth: 120 }}>
-      <FormControl variant="standard" color={props.color}>
+    <Box
+      sx={{
+        width: "100%",
+        textAlign: "left",
+      }}
+    >
+      <FormControl
+        variant="standard"
+        color={props.color}
+        component="form"
+        sx={{
+          width: {
+            lg: "15em",
+            xs: "9em",
+          },
+        }}
+      >
         <InputLabel
           id="demo-simple-select-label"
           sx={{ color: secondaryColor }}
+          component="label"
         >
           {props.label}
         </InputLabel>
@@ -28,7 +44,8 @@ const SelectInput = (props) => {
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={inputData}
-          label="Age"
+          label="Routes"
+          component="input"
           onChange={handleChange}
           color={props.color}
           sx={{

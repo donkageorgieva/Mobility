@@ -17,7 +17,14 @@ const Map = (props) => {
   const markers =
     props.markerInfo &&
     props.markerInfo.map((info) => (
-      <Marker key={info.id} position={info.coords} icon={mapIcon}>
+      <Marker
+        key={info.id}
+        position={info.coords}
+        icon={mapIcon}
+        eventHandlers={{
+          click: (e) => {},
+        }}
+      >
         <Tooltip>{info.tooltip}</Tooltip>
       </Marker>
     ));

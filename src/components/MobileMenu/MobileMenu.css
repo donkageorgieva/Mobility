@@ -1,0 +1,21 @@
+.menu {
+  width: 0px;
+  height: 100%;
+  position: absolute;
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  top: 0;
+  right: 0;
+}
+.menu.show {
+  width: 50%;
+  position: fixed;
+  z-index: 10;
+  height: 100%;
+  top: 0;
+  right: 0;
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  padding: 1em;
+}
+.closeIcon {
+  display: block;
+}

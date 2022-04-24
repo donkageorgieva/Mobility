@@ -1,13 +1,31 @@
 .navLink {
   color: white;
+  position: relative;
 }
-.navLink::after {
-  transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  width: 100%;
-  position: absolute;
-  height: 1px;
-  color: white;
+
+.menuIcon {
+  display: none;
 }
-.navLink .active {
-  transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+.navLinks-group {
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .menuIcon {
+    display: block;
+  }
+
+  .navLinks-group {
+    display: none;
+  }
+  .navLinks-group.show {
+    display: block;
+  }
+  .menu.navLink {
+    display: block;
+  }
+  .menu.navLinks-group {
+    display: block;
+  }
 }

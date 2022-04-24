@@ -1,26 +1,42 @@
-import { Box, AppBar, Toolbar, Typography } from "@mui/material";
+import React from "react";
+import { Box, AppBar, Toolbar, Typography, Backdrop } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import SelectInput from "../SelectInput/SelectInput";
 import { useSelector, useDispatch } from "react-redux";
 import { routeActions } from "../../redux/slices/routeSlice";
+import { useState } from "react";
+import MenuIcon from "@mui/icons-material/Menu";
+import MobileMenu from "../../components/MobileMenu/MobileMenu";
 import "./Nav.css";
 const Nav = (props) => {
+  const [menu, setMenu] = useState({
+    show: false,
+    classes: ["menu"],
+  });
   const routes = useSelector((state) => state.routes.routes);
   const dispatch = useDispatch();
+  const handleMobileMenu = () => {
+    setMenu({
+      show: !menu.show,
+      classes: !menu.show ? ["menu show"] : ["menu"],
+    });
+    console.log(menu);
+  };
+
   const navLinks = props.links.map((btn) => (
-    <li key={btn.text + btn.to}>
+    <li
+      key={btn.text + btn.to}
+      className={menu.show ? "navLinks-group show" : "navLinks-group"}
+    >
       <NavLink to={btn.to} className="navLink">
         {btn.text}
       </NavLink>
     </li>
   ));
+
   return (
-    <Box>
-      <AppBar
-        position="static"
-        component="nav"
-        sx={{ padding: "0.2em 0em 0.2em 0em" }}
-      >
+    <header component="header">
+      <AppBar component="nav" position="fixed" sx={{ p: 1 }}>
         <Toolbar
           component="ul"
           sx={{
@@ -53,11 +69,26 @@ const Nav = (props) => {
               }}
             />
           </li>
+          {!menu.show && navLinks}
+          <React.Fragment>
+            <MobileMenu
+              classes={menu.classes.join(" ")}
+              closeMenu={handleMobileMenu}
+              hide={!menu.show}
+            >
+              {menu.show && navLinks}
+            </MobileMenu>
+            {menu.show && (
+              <Backdrop open={menu.show} onClick={handleMobileMenu} />
+            )}
+          </React.Fragment>
 
-          {navLinks}
+          <li className="menuIcon" onClick={handleMobileMenu}>
+            <MenuIcon sx={{ width: "1.2em", height: "1.2em" }} />
+          </li>
         </Toolbar>
       </AppBar>
-    </Box>
+    </header>
   );
 };
 
