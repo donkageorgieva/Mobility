@@ -33,7 +33,7 @@ const Nav = (props) => {
     <li
       key={btn.text + btn.to}
       className={menu.show ? "navLinks-group show" : "navLinks-group"}
-      onClick={handleMobileMenu.bind({ close: true, open: false })}
+      onClick={menu.show && handleMobileMenu.bind({ close: true, open: false })}
     >
       <NavLink to={btn.to} className="navLink">
         {btn.text}

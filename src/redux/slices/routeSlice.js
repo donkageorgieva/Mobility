@@ -1,15 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  routes: [
-    {
-      name: "",
-      id: null,
-      transportType: "",
-      stops: [{ location: { lat: 0, lng: 0 }, name: "", id: "" }],
-    },
-  ],
-  displayedRoute: { id: null },
+  routes: [],
+  displayedRoute: {},
 };
 export const routeSlice = createSlice({
   name: "routes",
