@@ -28,9 +28,8 @@ export const routeSlice = createSlice({
         throw err;
       }
       if (state.displayedRoute === selectedRoute) return;
-      if (!action.payload.startFrom) {
-        state.displayedRoute = selectedRoute;
-      }
+
+      state.displayedRoute = selectedRoute;
     },
   },
 });

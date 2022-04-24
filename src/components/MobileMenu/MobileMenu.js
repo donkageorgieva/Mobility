@@ -1,4 +1,3 @@
-import { Box } from "@mui/system";
 import "./MobileMenu.css";
 import { primaryColor } from "../../assets/theme/theme";
 import CloseIcon from "@mui/icons-material/Close";

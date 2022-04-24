@@ -15,18 +15,25 @@ const Nav = (props) => {
   });
   const routes = useSelector((state) => state.routes.routes);
   const dispatch = useDispatch();
-  const handleMobileMenu = () => {
-    setMenu({
-      show: !menu.show,
-      classes: !menu.show ? ["menu show"] : ["menu"],
-    });
-    console.log(menu);
+  const handleMobileMenu = (action = { close: false, open: false }) => {
+    if (!action.close || !action.open) {
+      setMenu({
+        show: !menu.show,
+        classes: !menu.show ? ["menu show"] : ["menu"],
+      });
+    } else {
+      setMenu({
+        show: action.close ? false : true,
+        classes: action.open ? ["menu show"] : ["menu"],
+      });
+    }
   };
 
   const navLinks = props.links.map((btn) => (
     <li
       key={btn.text + btn.to}
       className={menu.show ? "navLinks-group show" : "navLinks-group"}
+      onClick={handleMobileMenu.bind({ close: true, open: false })}
     >
       <NavLink to={btn.to} className="navLink">
         {btn.text}
