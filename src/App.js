@@ -43,6 +43,8 @@ function App() {
                   iconWidth={18}
                   iconHeight={18}
                   iconUrl={"/bus.svg"}
+                  bounds={position}
+                  maxZoom={13}
                 />
               }
             />

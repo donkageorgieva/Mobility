@@ -18,9 +18,12 @@
 }
 .closeIcon {
   display: block;
+  cursor: pointer;
+  transition: ease-in-out 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
-.mobile-nav-wrapper {
-  margin: 0em;
+.closeIcon:hover {
+  transition: ease-in-out 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transform: scale(1.2);
 }
 @media (max-width: 900px) {
   .mobile-nav-wrapper {

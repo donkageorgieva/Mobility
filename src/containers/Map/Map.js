@@ -93,6 +93,8 @@ const Map = (props) => {
       zoom={props.zoom}
       scrollWheelZoom={props.scrollable}
       placeholder={<MapPlaceHolder />}
+      bounds={props.position}
+      minZoom={10}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
