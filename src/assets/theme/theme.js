@@ -46,6 +46,7 @@ theme.components = {
     styleOverrides: {
       root: {
         maxWidth: "100%",
+        borderBottom: "none",
       },
     },
   },
