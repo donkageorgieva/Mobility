@@ -45,6 +45,7 @@ function App() {
                   iconUrl={"/bus.svg"}
                   bounds={position}
                   maxZoom={13}
+                  minZoom={10}
                 />
               }
             />
