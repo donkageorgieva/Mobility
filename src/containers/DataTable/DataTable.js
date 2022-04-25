@@ -5,48 +5,65 @@ import {
   TableRow,
   TableBody,
   TableCell,
-  Table,
   Paper,
   Box,
+  Table,
 } from "@mui/material";
 
 import { primaryColor } from "../../assets/theme/theme";
 import TableRows from "../../components/TableRows/TableRows";
+
 const DataTable = (props) => {
   const selectedRoute = useSelector((state) => state.routes.displayedRoute);
   const allRoutes = useSelector((state) => state.routes.routes);
   return (
     <TableContainer component={Paper} sx={{ mt: 10, pt: 5 }}>
       <Box>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table ">
+        <Table
+          aria-label="simple table "
+          sx={{
+            minWidth: "100%",
+
+            borderCollapse: "collapse",
+            margin: "0 auto",
+            boxShadow: "1",
+            tableLayout: "fixed",
+          }}
+        >
           <TableHead>
             <TableRow>
               {selectedRoute.stops ? (
                 <TableCell
                   sx={{
-                    fontSize: "20px",
+                    fontSize: {
+                      lg: "18px",
+                      md: "14px",
+                    },
                     color: primaryColor,
                     fontWeight: 600,
                   }}
                 >
-                  {selectedRoute.name.toUpperCase()}
+                  <p>{selectedRoute.name.toUpperCase()}</p>
                 </TableCell>
               ) : (
                 allRoutes.map((route) => (
                   <TableCell
                     sx={{
-                      fontSize: "20px",
+                      fontSize: {
+                        lg: "18px",
+                        md: "14px",
+                      },
                       color: primaryColor,
                       fontWeight: 600,
                     }}
                   >
-                    {route.name.toUpperCase()}
+                    <p>{route.name.toUpperCase()}</p>
                   </TableCell>
                 ))
               )}
             </TableRow>
           </TableHead>
-          <TableBody>
+          <TableBody sx={{ maxWidth: "100%", fontSize: "14px" }}>
             {selectedRoute.stops ? (
               <TableRows rowInfo={selectedRoute.stops} />
             ) : (

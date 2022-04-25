@@ -42,5 +42,12 @@ theme.components = {
       },
     },
   },
+  MuiTableCell: {
+    styleOverrides: {
+      root: {
+        maxWidth: "100%",
+      },
+    },
+  },
 };
 export default theme;
