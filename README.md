@@ -1,6 +1,6 @@
 # Mobility App
 
-View deployed app at https://master--mobility-app.netlify.app/
+View deployed app at https://mobility-app.netlify.app/
 
 ## Built with
 
