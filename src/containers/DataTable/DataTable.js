@@ -94,7 +94,11 @@ const DataTable = (props) => {
             ) : (
               allRoutes.map((route) => (
                 <TableCell component="tr" key={route.id}>
-                  <TableRows rowInfo={route.stops} />
+                  <TableRows
+                    rowInfo={route.stops}
+                    wrapper="td"
+                    component="div"
+                  />
                 </TableCell>
               ))
             )}

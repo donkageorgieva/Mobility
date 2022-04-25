@@ -9,7 +9,6 @@ export const routeSlice = createSlice({
   initialState,
   reducers: {
     setRoutes(state, action) {
-      console.log(action.payload, "DATA ");
       state.routes = action.payload.routes;
     },
     displayRoute(state, action) {
