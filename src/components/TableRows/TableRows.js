@@ -8,8 +8,9 @@ const TableRows = (props) => {
       <TableRow
         key={row.id}
         sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+        component="td"
       >
-        <TableCell component="th" scope="row" sx={{ p: 1 }}>
+        <TableCell component="div" scope="row" sx={{ p: 1 }}>
           <div style={{ gap: "0.5em" }} className="flex">
             <DirectionsBusIcon sx={{ color: `#0092DA !important` }} />
 

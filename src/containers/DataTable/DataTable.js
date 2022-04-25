@@ -8,6 +8,7 @@ import {
   Paper,
   Box,
   Table,
+  Typography,
 } from "@mui/material";
 
 import { primaryColor } from "../../assets/theme/theme";
@@ -17,8 +18,30 @@ const DataTable = (props) => {
   const selectedRoute = useSelector((state) => state.routes.displayedRoute);
   const allRoutes = useSelector((state) => state.routes.routes);
   return (
-    <TableContainer component={Paper} sx={{ mt: 10, pt: 5 }}>
-      <Box>
+    <TableContainer
+      component={Paper}
+      sx={{
+        my: {
+          md: 10,
+          sx: 5,
+        },
+        py: 10,
+        boxShadow: "none",
+      }}
+    >
+      <Box
+        sx={{
+          width: {
+            sx: "100%",
+            md: "80%",
+          },
+          margin: "0 auto",
+          boxShadow: {
+            md: 1,
+            sx: "none",
+          },
+        }}
+      >
         <Table
           aria-label="simple table "
           sx={{
@@ -26,7 +49,6 @@ const DataTable = (props) => {
 
             borderCollapse: "collapse",
             margin: "0 auto",
-            boxShadow: "1",
             tableLayout: "fixed",
           }}
         >
@@ -42,6 +64,7 @@ const DataTable = (props) => {
                     color: primaryColor,
                     fontWeight: 600,
                   }}
+                  component="th"
                 >
                   <p>{selectedRoute.name.toUpperCase()}</p>
                 </TableCell>
@@ -56,6 +79,8 @@ const DataTable = (props) => {
                       color: primaryColor,
                       fontWeight: 600,
                     }}
+                    component="th"
+                    key={route.id}
                   >
                     <p>{route.name.toUpperCase()}</p>
                   </TableCell>
@@ -68,7 +93,7 @@ const DataTable = (props) => {
               <TableRows rowInfo={selectedRoute.stops} />
             ) : (
               allRoutes.map((route) => (
-                <TableCell>
+                <TableCell component="tr" key={route.id}>
                   <TableRows rowInfo={route.stops} />
                 </TableCell>
               ))

@@ -9,6 +9,10 @@
 
 .navLinks-group {
   display: block;
+  margin: 0em;
+}
+.navLinks-group a {
+  font-size: 1.25em;
 }
 
 @media (max-width: 900px) {
@@ -18,9 +22,13 @@
 
   .navLinks-group {
     display: none;
+    margin: 0em 0em 1em 0em;
   }
   .navLinks-group.show {
     display: block;
+  }
+  .navLinks-group a {
+    font-size: 1.5em;
   }
   .menu.navLink {
     display: block;

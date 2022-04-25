@@ -4,7 +4,7 @@ import CloseIcon from "@mui/icons-material/Close";
 const MobileMenu = (props) => {
   return (
     <div className={props.classes} style={{ backgroundColor: primaryColor }}>
-      <div className="flex between">
+      <div className="flex between align-start mobile-nav-wrapper">
         <div>{props.children}</div>
         <div
           onClick={props.closeMenu}

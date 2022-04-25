@@ -19,3 +19,11 @@
 .closeIcon {
   display: block;
 }
+.mobile-nav-wrapper {
+  margin: 0em;
+}
+@media (max-width: 900px) {
+  .mobile-nav-wrapper {
+    margin: 2em 0em 0em 0em;
+  }
+}
