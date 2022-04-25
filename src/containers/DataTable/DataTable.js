@@ -33,12 +33,16 @@ const DataTable = (props) => {
         sx={{
           width: {
             sx: "100%",
-            md: "80%",
+            md: "50%",
           },
           margin: "0 auto",
           boxShadow: {
             md: 1,
-            sx: "none",
+            xs: "none",
+          },
+          padding: {
+            xs: "0.50em",
+            md: "2em",
           },
         }}
       >
@@ -60,6 +64,8 @@ const DataTable = (props) => {
                     fontSize: {
                       lg: "18px",
                       md: "14px",
+                      py: 1,
+                      px: 4,
                     },
                     color: primaryColor,
                     fontWeight: 600,

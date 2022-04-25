@@ -47,6 +47,14 @@ theme.components = {
       root: {
         maxWidth: "100%",
         borderBottom: "none",
+        padding: "0em",
+      },
+    },
+  },
+  MuiTableRow: {
+    styleOverrides: {
+      root: {
+        padding: "0em",
       },
     },
   },

@@ -53,7 +53,7 @@ const Nav = (props) => {
   });
   return (
     <header component="header">
-      <AppBar component="nav" position="fixed" sx={{ p: 1 }}>
+      <AppBar component="nav" position="fixed" sx={{ p: 0 }}>
         <Toolbar
           component="ul"
           sx={{
@@ -62,10 +62,16 @@ const Nav = (props) => {
             margin: "0em",
           }}
         >
-          <li style={{ flexGrow: 1 }}>
-            <Typography variant="h6" component="h6" sx={{ padding: "0em" }}>
+          <li>
+            <h6
+              variant="h6"
+              component="h6"
+              style={{
+                padding: "0em",
+              }}
+            >
               {props.logo}
-            </Typography>
+            </h6>
           </li>
           <li style={{ flexGrow: 1 }}>
             <SelectInput

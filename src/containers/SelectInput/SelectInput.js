@@ -20,6 +20,8 @@ const SelectInput = (props) => {
       sx={{
         width: "100%",
         textAlign: "left",
+        display: "flex",
+        justifyContent: "center",
       }}
     >
       <FormControl

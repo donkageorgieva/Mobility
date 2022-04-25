@@ -11,9 +11,8 @@ const TableRows = (props) => {
         component={props.wrapper ? props.wrapper : "tr"}
       >
         <TableCell
-          component={props.component ? props.component : "th"}
+          component={props.component ? props.component : "td"}
           scope="row"
-          sx={{ p: 1 }}
         >
           <div style={{ gap: "0.5em" }} className="flex">
             <DirectionsBusIcon sx={{ color: `#0092DA !important` }} />
